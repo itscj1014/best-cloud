@@ -1,0 +1,14 @@
+server:
+  port: 8030
+spring:
+  application:
+    name: best-test
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8001
+security:
+  oauth2:
+    resource:
+      id: ${spring.application.name}
+      user-info-uri: http://localhost:8000/auth/user

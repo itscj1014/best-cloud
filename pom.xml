@@ -6,6 +6,7 @@
         <module>best-auth</module>
         <module>best-commons</module>
         <module>best-gateway</module>
+        <module>best-server</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

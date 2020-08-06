@@ -10,8 +10,19 @@ spring:
 zuul:
   routes:
     best-auth:
-      path: /auth/**
       serviceId: best-auth
+      path: /auth/**
+      stripPrefix: false
+      sensitiveHeaders: '*'
+    best-system:
+      serviceId: best-system
+      path: /system/**
+      stripPrefix: true
+      sensitiveHeaders: '*'
+    best-test:
+      serviceId: best-test
+      path: /test/**
+      stripPrefix: true
       sensitiveHeaders: '*'
   retryable: true
   ribbon:
