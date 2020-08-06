@@ -1,0 +1,12 @@
+server:
+  port: 8010
+  servlet:
+    context-path: /auth
+spring:
+  application:
+    name: best-auth
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8001
+      server-addr: localhost:8001

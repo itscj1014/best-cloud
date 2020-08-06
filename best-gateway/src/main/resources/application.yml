@@ -1,0 +1,22 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: best-zuul
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8001
+zuul:
+  routes:
+    best-auth:
+      path: /auth/**
+      serviceId: best-auth
+      sensitiveHeaders: '*'
+  retryable: true
+  ribbon:
+    eager-load:
+      # 开启饥饿加载
+      enabled: true
+ribbon:
+  ReadTimeout: 3000
