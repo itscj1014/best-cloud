@@ -1,12 +1,18 @@
 package com.van.auth.properties;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  * @author van.shu
  * @create 2020/8/6 21:12
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class BestClientsProperties {
     /**
      * client_id
