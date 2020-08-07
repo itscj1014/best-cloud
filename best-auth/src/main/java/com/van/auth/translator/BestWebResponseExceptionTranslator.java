@@ -12,10 +12,12 @@ import org.springframework.stereotype.Component;
 
 /**
  * 全局异常处理
+ * @author scj
  */
 @Slf4j
 @Component
-public class FebsWebResponseExceptionTranslator implements WebResponseExceptionTranslator {
+public class BestWebResponseExceptionTranslator implements WebResponseExceptionTranslator {
+
 
     @Override
     public ResponseEntity translate(Exception e) {

@@ -16,7 +16,8 @@ public class TestController {
 
     @GetMapping("test1")
     @PreAuthorize("hasAnyAuthority('user:add')")
-    public String test1() {
+    public String test1() throws InterruptedException {
+        Thread.sleep(50000);
         return "test1 from test server";
     }
 

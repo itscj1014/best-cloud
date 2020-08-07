@@ -29,5 +29,8 @@ zuul:
     eager-load:
       # 开启饥饿加载
       enabled: true
+  SendErrorFilter:
+    error:
+      disable: true
 ribbon:
   ReadTimeout: 3000

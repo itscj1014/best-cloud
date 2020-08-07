@@ -3,6 +3,7 @@ package com.van.auth.configure;
 import com.van.auth.properties.BestAuthProperties;
 import com.van.auth.properties.BestClientsProperties;
 import com.van.auth.service.BestUserDetailService;
+import com.van.auth.translator.BestWebResponseExceptionTranslator;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,9 +38,11 @@ public class BestAuthorizationServerConfigure extends AuthorizationServerConfigu
     @Autowired
     private RedisConnectionFactory redisConnectionFactory;
 
-
     @Autowired
     private BestUserDetailService bestUserDetailService;
+
+    @Autowired
+    private BestWebResponseExceptionTranslator bestWebResponseExceptionTranslator;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -91,7 +94,9 @@ public class BestAuthorizationServerConfigure extends AuthorizationServerConfigu
         endpoints.tokenStore(tokenStore())
                 .authenticationManager(authenticationManager)
                 .userDetailsService(bestUserDetailService)
-                .tokenServices(defaultTokenServices());
+                .tokenServices(defaultTokenServices())
+                //自定义异常处理
+                .exceptionTranslator(bestWebResponseExceptionTranslator);
 
     }
 
