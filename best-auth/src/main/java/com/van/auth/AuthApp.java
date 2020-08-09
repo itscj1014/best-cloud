@@ -1,6 +1,7 @@
 package com.van.auth;
 
 import com.van.commons.annotation.EnableBestAuthExceptionHandle;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 @EnableBestAuthExceptionHandle
+@MapperScan("com.van.auth.mapper")
 public class AuthApp {
 
     public static void main(String[] args) {

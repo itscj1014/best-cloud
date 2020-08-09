@@ -22,6 +22,8 @@ import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 
+import java.util.UUID;
+
 /**
  * 认证服务器安全配置类
  *
@@ -106,7 +108,11 @@ public class BestAuthorizationServerConfigure extends AuthorizationServerConfigu
      */
     @Bean
     public TokenStore tokenStore() {
-        return new RedisTokenStore(redisConnectionFactory);
+        RedisTokenStore redisTokenStore = new RedisTokenStore(redisConnectionFactory);
+        //解决每次生成Token都一样的问题
+        redisTokenStore.setAuthenticationKeyGenerator(oauth2Authentication -> UUID.randomUUID().toString());
+
+        return redisTokenStore;
     }
 
     @Bean
